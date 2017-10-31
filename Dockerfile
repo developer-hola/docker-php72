@@ -27,9 +27,8 @@ RUN set -e; \
     php-xdebug \
     php-redis \
     php7.2 \
-    php7.2-common php7.2-json  php7.2-opcache php7.2-readline \
+    php7.2-common php7.2-json php7.2-opcache php7.2-readline \
     php7.2-cli \
-    php7.2-common \
     php7.2-curl \
     php7.2-dev \
     php7.2-fpm \
