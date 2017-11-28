@@ -24,7 +24,6 @@ RUN set -e; \
     libmaxminddb0 libmaxminddb-dev mmdb-bin \
     # install PHP
     php-memcache \
-    php-xdebug \
     php-redis \
     php7.2 \
     php7.2-common php7.2-json php7.2-opcache php7.2-readline \
@@ -56,6 +55,7 @@ RUN set -e; \
     gunzip /usr/local/share/maxmind/GeoLite2-City.mmdb.gz && \
     useradd nginx && mkdir -p /var/lib/php/session && chgrp nginx /var/lib/php/session && \
     # xdebug log dir
+    git clone https://github.com/xdebug/xdebug.git && cd xdebug && ./rebuild.sh && \
     test ! -e /var/log/xdebug && mkdir /var/log/xdebug && chown nginx:nginx /var/log/xdebug && \
     curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin  && \
     composer global require hirak/prestissimo && \
