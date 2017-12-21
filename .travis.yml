@@ -7,7 +7,4 @@ script:
   - docker build -t emirb/php72 .
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker push emirb/php72
-    fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"; docker push emirb/php72; fi
