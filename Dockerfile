@@ -38,6 +38,7 @@ RUN set -e; \
     php7.2-mbstring \
     php7.2-oauth \
     php7.2-opcache \
+    php7.2-soap \
     php7.2-xml \
     php7.2-zip \
     php7.2-yaml \
