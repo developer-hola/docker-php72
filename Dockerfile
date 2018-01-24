@@ -24,6 +24,7 @@ RUN set -e; \
     libmaxminddb0 libmaxminddb-dev mmdb-bin \
     # install PHP
     php-memcache \
+    php-memcached \
     php-redis \
     php7.2 \
     php7.2-common php7.2-json php7.2-opcache php7.2-readline \
