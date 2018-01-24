@@ -4,7 +4,7 @@ services:
   - docker
 
 script:
-  - docker build -t emirb/php72 .
+  - travis_retry docker build -t emirb/php72 .
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"; docker push emirb/php72; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then travis_retry docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"; travis_retry docker push emirb/php72; fi
