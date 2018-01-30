@@ -50,14 +50,14 @@ RUN set -e; \
     jq && \
     # Install MongoDB
     pecl channel-update pecl.php.net && pecl install channel://pecl.php.net/geospatial-0.2.0 && pecl install mongodb-1.3.4 && echo "extension=mongodb.so" > /etc/php/7.2/mods-available/mongodb.ini && \
-    phpenmod -v 7.2 mongodb zip memcache && \
+    pecl install xdebug-2.6.0 && \
+    phpenmod -v 7.2 mongodb zip memcache xdebug && \
     # Install Maxmind
     mkdir -p /usr/local/share/maxmind && \
     curl -s -L -C - "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz" -o /usr/local/share/maxmind/GeoLite2-City.mmdb.gz && \
     gunzip /usr/local/share/maxmind/GeoLite2-City.mmdb.gz && \
     useradd nginx && mkdir -p /var/lib/php/session && chgrp nginx /var/lib/php/session && \
     # xdebug log dir
-    git clone https://github.com/xdebug/xdebug.git && cd xdebug && ./rebuild.sh && \
     test ! -e /var/log/xdebug && mkdir /var/log/xdebug && chown nginx:nginx /var/log/xdebug && \
     curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin  && \
     composer global require hirak/prestissimo && \
