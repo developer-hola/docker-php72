@@ -49,7 +49,7 @@ RUN set -e; \
     pkg-config libssl-dev \
     jq && \
     # Install MongoDB
-    pecl channel-update pecl.php.net && pecl install channel://pecl.php.net/geospatial-0.2.0 && pecl install mongodb-1.3.4 && echo "extension=mongodb.so" > /etc/php/7.2/mods-available/mongodb.ini && \
+    pecl channel-update pecl.php.net && pecl install channel://pecl.php.net/geospatial-0.2.0 && pecl install mongodb-1.4.2 && echo "extension=mongodb.so" > /etc/php/7.2/mods-available/mongodb.ini && \
     pecl install xdebug-2.6.0 && \
     phpenmod -v 7.2 mongodb zip memcache xdebug && \
     # Install Maxmind
